@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移入移出</title>
+</head>
+<style>
+    .father{
+        width: 200px;
+        height: 200px;
+        background-color: brown;
+    }
+    .son{
+        width: 100px;
+        height: 100px;
+        background-color:cadetblue;
+    }
+    .father1{
+        margin: 10px;
+        width: 200px;
+        height: 200px;
+        background-color: brown;
+    }
+    .son1{
+        width: 100px;
+        height: 100px;
+        background-color:cadetblue;
+    }
+</style>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function()
+    {
+        //mouseover
+        $(".father").on("mouseover",function()
+        {
+            console.log("father移入");
+        })
+
+        //mouseout
+        $(".father").on("mouseout",function()
+        {
+            console.log("father移出");
+        })
+        /*
+        注意！使用mouseover和mouseout时，只给父级添加这两个事件，移入子级会发生事件捕获，
+        子级会先触发mouseout然后再触发mouseover
+        */
+
+
+        //mouseenter
+        $(".father1").on("mouseenter",function()
+        {
+            console.log("father移入1");
+        })
+        //mouseleave
+        $(".father1").on("mouseleave",function()
+        {
+            console.log("father移出1");
+        })
+        /*不会触发事件捕获*/
+
+
+        //hover(移入函数,移出函数)
+        //hover(移入移出函数)
+        //hover和enter、leave一样，不会触发事件捕获
+        $(".father1").hover(function()
+        {
+            console.log("father移入2");
+        },function()
+        {
+            console.log("father移出2");
+        })
+    })
+</script>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <div class="father1">
+        <div class="son1"></div>
+    </div>
+</body>
+</html>
