@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery选项卡</title>
+</head>
+<style>
+    .content>li>img{
+        width: 500px;
+        height: 300px;
+    }
+    .box{
+        width: 500px;
+        height: 350px;
+        margin: 50px auto; 
+    }
+    .nav{
+        width: 500px;
+    }
+    .nav>li{
+        list-style: none;
+        width: 125px;
+        height: 50px;
+        background-color: deepskyblue;
+        float: left;
+        text-align: center;
+        line-height: 50px;
+    }
+    .content{
+        width: 500px;
+    }
+    .content>li{
+        list-style: none;
+        width: 500px;
+        height: 300px;
+        display: none;
+    }
+    .nav>.active1{
+        background-color: gray;
+    }
+    .content>.active2{
+        display: block;
+    }
+</style>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    //eq(0)选中多个元素中的第0个元素并返回成jq对象
+    //get(0)选中多个元素中的第0个元素并返回成字符串
+    /*
+    对象.siblings(),一组元素中选中除这个元素之外的元素
+    */
+    $(function()
+    {
+        
+        $(".nav>li").on("mouseenter",function()
+        {
+            //导航栏
+            $(this).addClass("active1");
+            $(this).siblings().removeClass("active1");
+
+            //轮播图
+            var index=$(this).index();
+            $(".content>li").eq(index).addClass("active2");
+            $(".content>li").eq(index).siblings().removeClass("active2");
+
+        })
+
+        
+    })
+</script>
+<body>
+    <div class="box">
+        <ul class="nav">
+            <li class="active1">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <ul class="content">
+            <li class="active2"><img src="images/1.png"></li>
+            <li><img src="images/2.png"></li>
+            <li><img src="images/3.png"></li>
+            <li><img src="images/4.png"></li>
+        </ul>
+    </div>
+</body>
+</html>
