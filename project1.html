@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影排行榜</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        width: 300px;
+        height: 450px;
+        border: 1px solid black;
+        margin: 50px auto;
+    }
+    .box>h2{
+        margin:0 10px;
+        color: deeppink;
+        font-size: 22px;
+        border-bottom: 1px dashed #ccc;
+    }
+    .vname>li>span{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: #ccc;
+        margin: 5px 10px;
+        text-align: center;
+        
+    }
+    .vname>li:nth-child(-n+3) span{
+        background-color: deeppink;
+    }
+    .vname>li{
+        list-style: none;
+        border: 1px dashed #ccc;
+        padding: 5px;
+        line-height: 20px;
+    }
+    .content>div{
+        width: 80px;
+        height: 120px;
+        background-color: deepskyblue;
+        float: left;
+        margin: 7px 8px;
+    }
+    .content>p{
+        width: 190px;
+        height: 120px;
+        float: right;
+        font-size: 12px;
+    }
+    .content{
+     overflow: hidden;
+     display: none;
+    }
+    .cuuer>.content
+    {
+        display: block;
+    }
+</style>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function(){
+        $("li").hover(function(){
+            $(this).attr("class","cuuer")       //添加属性节点class,值为cuuer，这里也可用addclass
+        },function()
+        {
+            $(this).removeClass("cuuer");       //移除class
+        })
+    })
+</script>
+<body>
+    <div class="box">
+        <h2>电影排行榜</h2>
+        <ul class="vname">
+            <li><span>1</span>电影名称<div class="content"><div>图片</div><p>简介：您打开影片时候，出现了一部已
+                经缓冲完毕，且影片内容不正确时，请打开baidu player这个下载目录，删除清空里面下载的影片，
+                然后刷新页面即可。注：删除前，请退出打开了百</p></div></li>
+            <li><span>2</span>电影名称<div class="content"><div>图片</div><p>简介：您打开影片时候，出现了一部已
+                经缓冲完毕，且影片内容不正确时，请打开baidu player这个下载目录，删除清空里面下载的影片，
+                然后刷新页面即可。注：删除前，请退出打开了百</p></div></li>
+            <li><span>3</span>电影名称</li>
+            <li><span>4</span>电影名称</li>
+            <li><span>5</span>电影名称</li>
+            <li><span>6</span>电影名称</li>
+        </ul>
+    </div>
+</body>
+</html>
