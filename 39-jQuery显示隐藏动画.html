@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示隐藏</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: blueviolet;
+        display: none;
+    }
+</style>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function(){
+
+        //show/hide/toggle(时间,结束时的回调函数)
+
+        //显示动画show
+        $("button").eq(0).on("click",function(){
+            $("div").show(1000,function(){               
+                alert("显示");
+            });        
+        })
+
+        //隐藏动画hide
+        $("button").eq(1).on("click",function(){
+            $("div").hide(1000,function(){
+                alert("隐藏");
+            });        
+            
+        })
+
+        //切换动画toggle
+        $("button").eq(2).on("click",function(){
+            $("div").toggle(1000,function(){
+                alert("切换");
+            });        
+            
+        })
+    })
+</script>
+<body>
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        width: 400px;
+        height: 600px;
+        margin: 20px auto;
+    }
+    .table
+    {
+        list-style: none;
+        width: 300px;
+        height: 425px;
+    }
+    .table>li{
+
+        width: 300px;
+        line-height: 70px;
+        border: 1px solid black;
+        border-top: none;
+        background-color: cornsilk;
+        text-indent: 2em;
+        position: relative;
+        
+    }
+ /*    .table>li:hover{
+        background-color: peachpuff;
+    } */
+    .table>li:first-child{
+        border-top:1px solid black;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .table>li:last-child{
+        border-top: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .table>li>span{
+        position: absolute;
+        font-size: 25px;
+        right: 20px;
+    }
+    .table>li:last-child>.sub>li:last-child
+    {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .sub{
+        display: none;
+    }
+    .sub>li{
+        list-style: none;
+        background-color: cyan;
+        line-height: 30px;
+        border-bottom: 1px solid orangered;
+        
+    }
+    .sub>li:last-child
+    {
+        border: none;
+    }
+    .sub>li:hover{
+        background-color: palegreen;
+    }
+</style>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function()
+    {
+        //监听点击事件
+        $(".table>li").on("click",function()
+        {
+            //点击显示二级菜单
+            $(this).children(".sub").slideToggle(500);
+            $(this).siblings().children(".sub").slideUp(500);
+
+            //点击改变按钮
+            $(this).children("span").text("v");
+            $(this).siblings().children("span").text(">");
+           
+        })
+    })
+</script>
+<body>
+    <div>
+        <ul class="table">
+            <li>一级菜单<span>></span>
+                <ul class="sub">
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                </ul>
+            </li>
+            <li>一级菜单<span>></span><ul class="sub">
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                </ul></li>
+            <li>一级菜单<span>></span><ul class="sub">
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                </ul></li>
+            <li>一级菜单<span>></span><ul class="sub">
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                </ul></li>
+            <li>一级菜单<span>></span><ul class="sub">
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                </ul></li>
+            <li>一级菜单<span>></span><ul class="sub">
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                </ul></li>
+        </ul>
+    </div>
+</body>
+</html>

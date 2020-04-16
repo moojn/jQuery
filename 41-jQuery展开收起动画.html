@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展开收起</title>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 400px;
+        background-color: blueviolet;
+        display: none;
+    }
+</style>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+   $(function()
+       {
+        //展开slideDown
+        $("button").eq(0).on("click",function(){
+            $("div").slideDown(1000,function(){               
+                alert("展开");
+            });        
+        })
+
+         //收起slideUp
+         $("button").eq(1).on("click",function(){
+            $("div").slideUp(1000,function(){               
+                alert("收起");
+            });        
+        })
+
+         //切换slideToggle
+         $("button").eq(2).on("click",function(){
+            $("div").slideToggle(1000,function(){               
+                alert("切换");
+            });        
+        })
+       }
+   )
+</script>
+<body>
+    <button>展开</button>
+    <button>收起</button>
+    <button>切换</button>
+    <div></div>
+</body>
+</html>

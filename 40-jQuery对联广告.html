@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对联广告</title>
+</head>
+<style>
+    .left{
+        width: 100px;
+        height: 200px;
+        background-color: cadetblue;
+        position: fixed;
+        top: 200px;
+        left: 0;
+        display: none;
+    }
+    .right{
+        width: 100px;
+        height: 200px;
+        background-color: cadetblue;
+        position: fixed;
+        top: 200px;
+        right: 0;
+        display: none;
+    }
+</style>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function()
+    {
+        //监听滚动事件用scroll
+        $(window).scroll(function()             //当滚动时发生事件
+        {
+            var dtop=$("html,body").scrollTop();
+            //显示
+            if(dtop>=400)
+            {
+                $("div").show(1000);
+            }
+            //隐藏
+            else
+            {
+                $("div").hide(1000);
+            }
+        })
+    })
+</script>
+<body>
+    <div class="left">我是广告</div>
+    <div class="right">我是广告</div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
