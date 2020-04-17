@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hellow</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        border:1px solid #000;
+    }
+</style>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    /*
+    *原生js和jQuery入口函数加载模式不同
+    *原生js会等到dom以及图片加载完毕才会执行
+    *jQuery会等到dom加载完毕执行，不会预先加载图片
+    */
+    $(document).ready(function()
+    {
+        //1.获取DOM元素
+        var $img=$("img");
+        console.log($img);
+
+        //2.获取图片宽度(jQuery的入口函数不能拿到DOM元素的宽高，他拿到的是<img>的宽高或者浏览器缓存里面图片的宽度)
+        var $width=$img.width();
+        console.log($width);
+    });
+
+
+    /*
+    *编写多个jQuery的入口后面的不会覆盖前面的
+    *原生js会覆盖
+    */
+    $(document).ready(function()
+    {
+        alert('111');
+    })
+    $(document).ready(function()
+    {
+        alert('222');
+    })
+</script>
+<body>
+<img src="https://i0.hdslb.com/bfs/sycp/creative_img/202003/50d0fcb24b7758d09c02d3c6be4b50ce.jpg">
+</body>
+</html>

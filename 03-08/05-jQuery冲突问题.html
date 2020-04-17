@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冲突问题</title>
+</head>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    //当引入别的框架后，如果别的框架使用了jQuery中的访问符会产生冲突问题
+    
+    /*若别的框架使用了$访问符*/
+    //解决1：释放$的使用权
+    jQuery.noConflict();        //不能使用$
+    jQuery(function()
+    {
+        alert('11');
+    })
+
+    //解决2：自定义一个访问符
+    var xy=jQuery.noConflict();
+    xy(function()
+    {
+        alert('22');
+    })
+</script>
+<body>
+    
+</body>
+</html>

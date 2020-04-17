@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方法</title>
+</head>
+<script>
+      /********
+     *********JS**********
+     * 静态方法：直接添加到类上面的方法,通过类名调用
+     * 实例方法：添加到原型上的方法，通过实例调用
+     * *******/
+
+    function Creat()                        //定义一个类(构造函数)
+    {
+
+    };
+    
+    //静态方法
+    Creat.staticMethod=function()           //给Create类添加一个静态方法
+    {
+        alert("我是通过类名调用的静态方法");
+    }
+
+    Creat.staticMethod();                   //通过类名调用静态方法
+
+
+    //实例方法
+    Creat.prototype.instaticMethod=function()
+    {
+        alert("我是通过实例（对象）调用的实例方法");
+    }
+
+    var a=new Creat ();                     //通过实例调用实例方法
+    a.instaticMethod();
+
+    
+</script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心函数</title>
+</head>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    //$( )是jQuery的核心函数
+
+    //1.接收一个函数
+    $(function()
+    {
+        alert('1.接收一个函数');
+
+    //2.1接收一个字符串选择器
+    //将$( )中接收到的字符串选择器返回成一个jQuery对象，对象中保存了用字符串选择器（.div1  #div2）找到的DOM元素
+        var $div1=$(".div1");
+        var $div2=$("#div2");
+        console.log($div1);
+        console.log($div2);
+        
+
+    //2.2接收一个字符串代码段
+    //$()中接收到的代码片段返回成一个jQuery对象，对象中保存了创建的DOM元素
+        var $p=$("<p>我是段落</p>");
+        console.log($p);
+        $div1.append($p);
+
+    //3.接收一个dom元素
+    //将接收到的原生js的dom元素包装成一个jQuery对象返回给我们
+    var oSpan=document.getElementsByTagName('span')[0];
+    var $span=$(oSpan);
+    console.log($span);
+    })
+</script>
+<body>
+    <div class="div1"><span></span></div>
+    <div id="div2"></div>
+</body>
+</html>
