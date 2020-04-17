@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function()
+    {
+        /*
+        1.什么是事件冒泡
+        2.怎么阻止事件冒泡
+        3.什么是默认行为
+        4.怎么阻止默认行为
+        */
+
+        //1.事件冒泡
+        //给father一个点击事件
+        $(".father").on("click",function()
+        {
+            alert("father");
+        });
+        //给son一个点击事件
+        //此时会产生事件冒泡，son的点击事件传到了father，当点son时，father也会弹出提示框
+        $(".son").on("click",function(event)
+        {
+            alert("son");
+            
+            //2.取消事件冒泡的两种方法
+            //return false;使得son的点击事件传递不到father
+           // event.stopPropagation();
+        });
+
+
+        //3.默认行为就是没有添加但是本身就拥有的行为，比如a标签、submit按钮点击会跳转页面
+        //4.阻止默认行为两种方法
+        $("a").click(function(event)
+        {
+            alert("登录");
+            // return false;
+            //event.preventDefault();
+        })
+
+        $("input[type='submit']").click(function()
+        {
+            alert("提交");
+            
+        })
+
+        //事件自动触发
+        $(".son").trigger("click");                              //trigge，不会阻止默认行为以及事件冒泡
+        $("input[type='submit']").triggerHandler("click");      ////triggerHandler,会阻止默认行为以及事件冒泡
+        //注意！如果已经阻止了事件冒泡或者默认行为，trigger同样也会阻止
+
+        //重点！！<a>标签使用trigger或者是triggerHandler都不会触发默认事件
+        //触发默认事件的解决办法：给<a>标签里面添加一个<span>标签，$("span").trigger("click")。
+
+        $("span").trigger("click");
+    })
+</script>
+<style>
+    .father{
+        width: 200px;
+        height: 200px;
+        background-color: blueviolet;
+    }
+    .son{
+        width: 100px;
+        height: 100px;
+        background-color: burlywood;
+    }
+</style>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="http://www.baidu.com"><span>登录</span></a>
+    <form action="http://www.taobao.com">
+    <input type="text">
+    <input type="submit" value="提交">
+    </form>
+</body>
+</html>

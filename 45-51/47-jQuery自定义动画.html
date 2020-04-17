@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义动画</title>
+</head>
+<style>
+    .box1{
+        width: 100px;
+        height: 100px;
+        background-color:orange;
+        
+    }
+    
+    .box2{
+        width: 100px;
+        height: 100px;
+        background-color: greenyellow;
+        margin-top: 10px;
+    }
+
+</style>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function(){
+
+        /*
+        animate(对象，时间，动画执行方式，回调函数)
+        对象：{属性：值,属性：值}
+        时间：加入动画队列的时间
+        动画执行方式：默认swing（匀速），linear(先慢后快再慢)
+        回调函数：动画执行结束之后执行；
+        */
+
+        //第一个匀速运动，第二个缓速运动
+        $("button").eq(0).click(function(){
+            $(".box1").animate({marginLeft:500},2000,"linear",function(){})
+            $(".box2").animate({marginLeft:500},2000,"swing",function(){})
+        })
+
+        //每次点击div1的宽度会加100px
+        $("button").eq(1).click(function()
+        {
+            $(".box1").animate({width:"+=100"},500);
+        })
+
+        //关键字：hide隐藏,toggle切换显示隐藏
+        $("button").eq(2).click(function()
+        {
+            $(".box1").animate({width:"toggle"},500);
+        })
+    })
+</script>
+<body>
+    <button>操作属性</button>
+    <button>累加属性</button>
+    <button>关键字</button>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

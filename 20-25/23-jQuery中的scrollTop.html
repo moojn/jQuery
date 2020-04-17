@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollTop</title>
+</head>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    //注意！！！！scrolltop传递的参数是一个值，不是字符串
+    $(function()
+    {
+        var aBtn=document.getElementsByTagName("button");
+
+        //设置div
+        aBtn[0].onclick=function()
+        {
+            $("div").scrollTop(200);
+        }
+        //获取div
+        aBtn[1].onclick=function()
+        {
+            alert($("div").scrollTop());
+        }
+        //设置html
+        aBtn[2].onclick=function()
+        {
+            //ie设置不了HTML的scrolltop，所以要加上body(兼容)
+            $("html,body").scrollTop(200);
+        }
+        //获取HTML
+        aBtn[3].onclick=function()
+        {
+            alert($("html").scrollTop()+$("body").scrollTop());
+        }
+    })
+</script>
+<style>
+    .scroll{
+        width: 100px;
+        height: 200px;
+        border: 1px solid blackb;
+        overflow: auto;
+    }
+</style>
+<body>
+    <div class="scroll">我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        
+    </div>
+    <button>设置div</button>
+    <button>获取div</button>
+    <button>设置html</button>
+    <button>获取html</button>
+    <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+</body>
+</html>

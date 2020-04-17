@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他静态方法</title>
+</head>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    //1.   $.trim( )
+
+    /*
+    $.trim(字符串)可以去除字符串两端的空格【中间的去不掉】，
+    该方法需要一个变量来存储去除过空格的字符串
+    */
+    var str="    pxy    ";
+    var res1=$.trim(str);
+    console.log("----"+str+"----");
+    console.log("----"+res1+"----");
+
+  
+
+    var arr=[5,78,23,2,1];
+    var arrlike={0:12, 1:9, 2:1, length:3 };
+    var obj={"name":"pxy","age":"20"};
+    var fn=function(){};
+    var w=window;
+
+    //2.  $.isArray( )
+    /*
+    $.isArray(变量)，判断该变量是否为一个数组
+    该方法需要一个变量来存储返回结果
+    返回结果有true或false
+    */
+    var res2=$.isArray(arr);
+    console.log(res2);
+
+
+    //3.  $.isFunction( )
+    /*
+    $.isFunction(变量)，判断该变量是否为一个函数
+    该方法需要一个变量来存储返回结果
+    返回结果有true或false
+    */
+
+    //注意！！通过该方法可以知道jQuery是一个立即执行的匿名函数
+    /*
+    (function( window, undefined ) {
+        ...
+    })(window);
+    相当于
+    function test(){};
+    test();
+    */
+    var res3=$.isFunction(jQuery);
+    console.log(res3);
+
+    //4.  $.isWindow( )
+    /*
+    $.isWindow(变量)，判断该变量是否为一个window对象
+    该方法需要一个变量来存储返回结果
+    返回结果有true或false
+    */
+   var res4=$.isWindow(w);
+   console.log(res4);
+</script>
+<body>
+    
+</body>
+</html>

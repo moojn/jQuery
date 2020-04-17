@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prop</title>
+</head>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    /*
+    prop操作属性 sourcse——>watch 获取DOM元素，DOM元素中获取到的就是属性
+    */
+   $(function()
+   {
+    //增加属性           eq(0)获取第一个元素
+    $("span").eq(0).prop("demo","pxy");
+    $("span").eq(1).prop("demo","123");
+
+    //获取属性
+    console.log($("span").prop("demo"));
+
+    //删除属性
+    $("span").removeProp("demo");
+
+    //注意！！！prop也可以操作属性节点
+    //attr和prop的使用情况
+    console.log($("input").prop("checked"));        //返回true或者false
+    console.log($("input").attr("checked"));        //返回checked或者undefined
+
+   })
+</script>
+<body>
+<span class="span1" name="1"></span>   
+<span class="span2" name="2"></span> 
+<input type="checkbox" checked>  
+</body>
+</html>

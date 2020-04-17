@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function()
+    {
+        function test1()
+        {
+            alert("我是方法一");
+ 
+        };
+        function test2()
+        {
+            alert("我是方法二");
+ 
+        };
+
+        $("button").on("click",test1)
+        $("button").on("click",test2)
+        $("button").on("mouseenter",function()
+        {
+            alert("我是mouseenter");
+        })
+
+        /*off()函数来解绑事件
+        1.off不传参数，会清除所有事件
+        2.off传一个参数，例如off("click")会清除所有click事件
+        3.off传两个参数例如off("click",test1)会清除test1函数的click事件
+        */
+        $("button").off("click",test1);
+    })
+</script>
+<body>
+    <button>我是按钮1</button>
+</body>
+</html>

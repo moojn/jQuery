@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>样式操作</title>
+    <script src="../jquery-1.12.4.min.js"></script>
+    <script>
+        $(function()
+        {
+            var oBtn=document.getElementsByTagName("button");
+
+            oBtn[0].onclick=function()
+            {
+                //逐个设置
+                $("div").css("width","100px");
+                $("div").css("height","100px");
+                $("div").css("background","red");
+            }
+            oBtn[1].onclick=function()
+            {
+                //链式设置(不宜超过三个)
+                $("div").css("width","100px").css("height","100px").css("background","blue");
+            }
+            oBtn[2].onclick=function()
+            {
+                //批量设置（推荐）
+                $("div").css({
+                    width:"100px",
+                    height:"100px",
+                    background:"green"
+                })
+            }
+            oBtn[3].onclick=function()
+            {
+                alert($("div").css("width"));
+            }
+           
+        })
+    </script>
+</head>
+<body>
+    <button>逐个设置</button>
+    <button>链式设置</button>
+    <button>批量设置</button>
+    <button>获取css</button>
+    <div></div>
+</body>
+</html>

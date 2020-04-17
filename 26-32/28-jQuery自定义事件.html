@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    /*
+    自定义事件要用对象.on("事件"，函数)来定义
+    用trigger或者triggerHandler来调用
+    */
+    $(function()
+    {
+        //给按钮添加一个自定义事件
+        $("button").on("MyClick",function()
+        {
+            alert("我是自定义事件")
+        })
+        //调用自定义事件
+        $("button").trigger("MyClick");
+    })
+</script>
+<body>
+    <button>点击</button>
+</body>
+</html>

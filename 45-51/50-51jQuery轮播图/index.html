@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    img{
+        width: 350px;
+        height: 200px;
+    }
+    div{
+        margin:200px auto;
+        width: 700px;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+    ul{
+        width:2100px;
+        height: 200px;
+        position: absolute;
+        background-color: black;
+    }
+    ul>li{
+        width: 350px;
+        height: 200px;
+        list-style: none;
+        float: left;
+    }
+</style>
+<script src="jquery-1.12.4.min.js"></script>
+<script>
+    $(function()
+    {
+        var offset=0;
+        var timer=null;
+
+        //图片滚动
+        function activePlay ()
+        {
+            offset+=-10;
+            $("ul").css("marginLeft",offset)
+            if(offset<=-1400)
+            {
+                offset=0;
+            }
+        }
+        var timer=setInterval(activePlay,30);
+
+        $("li").hover(function()
+        {   
+            //移入清除定时器
+            clearInterval(timer);
+            //添加蒙版
+            $(this).siblings().fadeTo(100,0.5);
+            
+        },
+        function()
+        {
+            //移出
+            timer=setInterval(activePlay,30);
+            $(this).siblings().fadeTo(100,1);
+        })
+
+    })
+</script>
+<body>
+    <div>
+        <ul>
+            <li><img src="images/1.png"></li>
+            <li><img src="images/2.png"></li>
+            <li><img src="images/3.png"></li>
+            <li><img src="images/4.png"></li>
+            <li><img src="images/1.png"></li>
+            <li><img src="images/2.png"></li>
+        </ul>
+    </div>
+</body>
+</html>

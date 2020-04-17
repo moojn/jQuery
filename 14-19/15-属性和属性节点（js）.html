@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性和属性节点</title>
+</head>
+<script>
+
+    /*
+    1.什么是属性:对象上的变量就是属性
+    2.操作属性
+    3.什么是属性节点：在HTML标签中添加的属性就是属性节点（只有DOM元素有属性节点）
+    4.操作属性节点
+    */
+
+    //2.操作属性
+    function Creat()
+    {
+        this.age="17";
+    }
+    var c=new Creat();
+    console.log(c.age);
+    c[name]="张三";
+    console.log(c[name]);
+
+    window.onload=function()
+    {
+    //4.操作属性节点
+        var oTxt=document.getElementsByTagName("input")[0];
+        //这里将name为text1的文本框变成了，name为btn1的按钮
+        oTxt.setAttribute("type","button");        //setAttribute("属性节点","要设置的值")
+        oTxt.setAttribute("name","btn1");
+
+        //获取DOM元素的属性节点
+        console.log(oTxt.getAttribute("name"));
+
+    }
+</script>
+<body>
+    <input type="text" name="text1" value="我是text">
+</body>
+</html>

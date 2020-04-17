@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+</head>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function()
+    {
+        //点击按钮新增li
+        $("button").on("click",function()
+        {
+            $("ul").append("<li>我是新增的li</li>");
+        })
+
+        //jQuery中如果找到的元素不止一个，那么jQuery会遍历所有找到的元素并给他们添加事件
+        $("ul>li").on("click",function()
+        {
+            console.log($(this).html());
+        })
+        /*
+        注意！
+        当我们新增li之后，点击新增的li控制台不会打印新增的li
+        原因：jQuery入口函数是在所有DOM元素加载完成之后执行的，这里新增的li是在DOM元素
+        加载完毕之后（入口函数执行之后）新增的，所以新增的li没有click事件
+
+        解决：将监听click事件的任务交给父元素，当点击新增的li时，click事件会传递给父元素
+        父元素响应click事件，最终新增的li会执行click事件
+        
+        */
+
+        //事件委托
+        $("ul").delegate("li","click",function()
+        {
+            console.log($(this).html());        //this指的就是点击的li，不是ul（li将事件传递给ul的）
+        })
+    })
+</script>
+<body>
+    <ul>
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+    </ul>
+    <button>新增li</button>
+</body>
+</html>

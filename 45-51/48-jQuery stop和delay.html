@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stop delay</title>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color:royalblue;
+    }
+</style>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function(){
+        $("button").eq(0).click(function()
+        {
+            //先变宽再变高
+            $("div").animate({width:400},2000).delay(1000).animate({height:400},2000);
+        })
+
+
+        //stop(清空队列，完成队列)      true：清空 false：不清空   true：完成（立即完成动画）  false：不完成（不立即完成）
+        $("button").eq(1).click(function()
+        {
+            
+           //$("div").stop(true);                      //当前停止，后续也停止 
+           //$("div").stop(false);                    //当前停止,后续不停止 
+           //$("div").stop(true,false);                 //当前停止，后续也停止
+           $("div").stop(true,true);                  //当前停止并立即执行完毕，后续停止
+          // $("div").stop(false,true);                   //当前停止并立即执行完毕，后续不停止
+           //$("div").stop(false,false);               //当前停止,后续不停止
+           
+           
+          
+           
+        })
+    })
+</script>
+<body>
+    <button>开始动画</button>
+    <button>停止动画</button>
+    <div></div>
+</body>
+</html>

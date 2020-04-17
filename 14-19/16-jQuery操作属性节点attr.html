@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr</title>
+</head>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function()
+    {
+        /*
+        attr( )用来获取（一个参数），设置属性节点（两个参数）
+        注意！！！获取属性节点只能获取匹配的第一个属性节点！
+        removeAttr( )
+        */
+
+        //获取属性节点
+        //注意！！！获取属性节点只能获取匹配的第一个属性节点！
+        var clas=$("span").attr("class")
+        console.log( clas);
+
+       //设置属性节点
+       $("span").attr("class","box");
+
+       //新增属性节点（如果设置的属性节点不存在，系统会新增一个属性节点）
+       $("span").attr("abc","pxy");
+
+       //删除属性节点（删除多个用空格隔开）
+       $("span").removeAttr("name class");
+
+    })
+</script>
+<body>
+    <span class="span1" name="1"></span>
+    <span class="span2" name="2"></span>
+</body>
+</html>

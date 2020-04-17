@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function()
+    {
+        /*
+        1.添加事件的命名空间 click.自定义的命名空间
+        2.触发条件
+        //事件是用on绑定的
+        //事件通过trigger触发
+        */
+        //此时两个事件都可以触发
+        $("button").on("click.1",function()
+        {
+            alert("click1");
+        })
+
+        $("button").on("click.2",function()
+        {
+            alert("click2");
+        })
+
+        //只触发click1
+        $("button").trigger("click.1");
+        
+    })
+</script>
+<body>
+    <button>点击</button>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>each方法</title>
+</head>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    /*********js***********/
+    //注！！！！foreach方法是es6中新增的方法
+    //forEach(value,index)          value：数组中的元素     index：数组的索引
+
+
+    var arr=[5,78,23,2,1];
+    var obj={0:12, 1:9, 2:1, length:3 };       //这是一个伪数组(有0到length-1个属性，并且有length这个属性)
+
+
+    //遍历数组
+    console.log("foreach遍历数组");
+    arr.forEach(function(value,index){      //当遍历时调用foreach括号内的回调函数
+        console.log(index,value);
+    } );
+
+    /*  obj是一个伪数组，foreach方法不能遍历
+    obj.forEach(function(value,index){
+        console.log(inde,value);
+    })
+    */
+    
+    /*********jQuery***********/
+    //注！！！！each是先传index再传value，foreach则相反
+
+
+    //遍历数组
+    console.log("each遍历数组");
+    $.each(arr,function(index,value){
+        console.log(index,value);
+    });
+
+
+    //遍历伪数组
+    console.log("each遍历伪数组");
+    $.each(obj,function(index,value){
+        console.log(index,value);
+    })
+
+</script>
+<body>
+    
+</body>
+</html>

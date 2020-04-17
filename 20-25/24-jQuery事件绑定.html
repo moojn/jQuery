@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    //两种事件绑定的方法
+    //1.对象.事件(function)
+    //2.对象.on(事件，function)
+
+    $(function()
+    {
+        /*
+        1.对象.事件(function)
+        缺点：一、事件写死了，修改不好修改  二、有些js事件没有涵盖
+        可以绑定多个相同或者不同的事件
+        */
+        $("button").eq(0).click(function()
+        {
+            alert("click1");
+        });
+
+        $("button").eq(0).click(function()
+        {
+            alert("click2");
+        });
+
+        $("button").eq(0).mouseenter(function()
+        {
+            alert("mouseenter");
+        });
+
+        /*
+        2.对象.on(事件，function)
+        缺点：代码量略大
+        优点：一、事件没有写死，好修改  二、涵盖所有js事件
+        可以绑定多个相同或者不同的事件
+        实际开发中推荐！！！！
+        */
+
+        $("button").eq(1).on("click",function()
+        {
+            alert("我是方法二");
+        })
+
+        $("button").eq(1).on("click",function()
+        {
+            alert("我是方法二111");
+        })
+
+        $("button").eq(1).on("mouseenter",function()
+        {
+            alert("我是mouseenter");
+        })
+
+    })
+</script>
+<body>
+    <button>我是按钮1</button>
+    <button>我是按钮2</button>
+</body>
+</html>

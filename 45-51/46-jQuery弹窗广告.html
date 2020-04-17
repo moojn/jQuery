@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹窗广告</title>
+</head>
+<style>
+    div{
+        width: 350px;
+        height: 200px;
+        background-color: thistle;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        display: none;
+    }
+    div>span{
+        width: 35px;
+        height: 25px;
+        background-color: tomato;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+    }
+    a{
+        width: 20px;
+        height: 20px;
+        background-color: teal;
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function(){
+        //点击关闭广告
+        $("span").eq(0).click(function()
+        {
+            $("div").hide();
+        })
+
+        //弹出广告(前面加stop可以避免潜在bug)
+        $("div").stop().slideDown(1000).fadeOut(500).fadeIn(500)
+    })
+</script>
+<body>
+    <div>我是广告 <span>关闭</span><a href="http://www.baidu.com">x</a></div>
+</body>
+</html>

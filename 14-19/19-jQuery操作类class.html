@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<style>
+    .class1{
+        width: 100px;
+        height: 100px;
+        background-color: cadetblue;
+    }
+    .class2{
+        border: 10px solid black;
+    }
+</style>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function()
+    {
+        var oBtn1=document.getElementsByTagName("input")[0];
+        var oBtn2=document.getElementsByTagName("input")[1];
+        var oBtn3=document.getElementsByTagName("input")[2];
+
+        oBtn1.onclick=function()
+        {
+            //添加类，添加多个类用逗号隔开
+            $("div").addClass("class1 class2");
+        };
+        oBtn2.onclick=function()
+        {
+            //删除类
+            $("div").removeClass("class1 class2");
+            
+        };
+        oBtn3.onclick=function()
+        {
+            //切换类，有则添加，没有则删除
+            $("div").toggleClass("class2");
+
+        };
+    }
+    )
+</script>
+<body>
+    <input type="button" value="添加类">
+    <input type="button" value="删除类">
+    <input type="button" value="切换类">
+    <div></div>
+</body>
+</html>

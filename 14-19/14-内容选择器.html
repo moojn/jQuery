@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容选择器</title>
+</head>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    //empty                 内容为空
+    //parent                有内容和标签
+    //contains(text)        包含xx内容
+    //has(selector)         包含xx标签
+
+    $(function()
+    {
+        //empty
+        var $div=$("div:empty");
+        console.log("empty");
+        console.log($div);
+
+        //parent
+        var $div2=$("div:parent");
+        console.log("parent");
+        console.log($div2);
+
+        //contains(text) 
+        var $div3=$("div:contains('我是div')");
+        console.log("contains(text)");
+        console.log($div3);
+
+        //has(selector)
+        var $div4=$("div:has(span)");
+        console.log("has(selector)");
+        console.log($div4);
+
+    })
+</script>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+        background-color: cadetblue;
+    }
+</style>
+<body>
+    <div>我是div</div>
+    <div></div>
+    <div>你好我是div</div>
+    <div>你好</div>
+    <div><span></span></div>
+    <div><p></p></div>
+</body>
+</html>

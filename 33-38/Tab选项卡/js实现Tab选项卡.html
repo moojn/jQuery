@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js选项卡</title>
+</head>
+<style>
+    .content>li>img{
+        width: 500px;
+        height: 300px;
+    }
+    .box{
+        width: 500px;
+        height: 350px;
+        margin: 50px auto; 
+    }
+    .nav{
+        width: 500px;
+    }
+    .nav>li{
+        list-style: none;
+        width: 125px;
+        height: 50px;
+        background-color: deepskyblue;
+        float: left;
+        text-align: center;
+        line-height: 50px;
+    }
+    .content{
+        width: 500px;
+    }
+    .content>li{
+        list-style: none;
+        width: 500px;
+        height: 300px;
+        display: none;
+    }
+    .nav>.active1{
+        background-color: gray;
+    }
+    .content>.active2{
+        display: block;
+    }
+</style>
+<script>
+window.onload=function()
+{
+    var oUl1=document.getElementById("ul1");
+    var aLi1=oUl1.getElementsByTagName("li");
+
+    var oUl2=document.getElementById("ul2");
+    var aLi2=oUl2.getElementsByTagName("li");
+
+    //遍历li1添加移入事件
+    for(var i=0;i<aLi1.length;i++)
+    {
+        aLi1[i].index=i;
+        aLi1[i].onmouseover=function()
+        {
+            //遍历li1和li2移除之前添加的样式
+            for(var i=0;i<aLi1.length;i++)
+            {
+                aLi1[i].style.backgroundColor="deepskyblue";
+                aLi2[i].style.display="none";
+            }
+            //遍历li1和li2添加样式
+            this.style.backgroundColor="gray";
+            aLi2[this.index].style.display="block";
+            
+        }
+    }
+}
+</script>
+<body>
+    <div class="box">
+        <ul class="nav" id="ul1">
+            <li class="active1">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <ul class="content" id="ul2">
+            <li class="active2"><img src="images/1.png"></li>
+            <li><img src="images/2.png"></li>
+            <li><img src="images/3.png"></li>
+            <li><img src="images/4.png"></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>holdReady</title>
+</head>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    /*
+    $.holdReady()的作用是暂停恢复ready事件
+    参数true表示暂停
+    参数false表示恢复
+    */
+    $.holdReady(true);                      //暂停ready事件
+    $(document).ready(function()
+    {
+        alert("我是ready事件");
+    })
+
+    window.onload=function()
+    {
+        var oBtn=document.getElementsByTagName("input")[0];
+        oBtn.onclick=function()
+        {
+            $.holdReady(false);             //点击按钮恢复ready事件
+        }
+    }
+    
+</script>
+<body>
+    <input type="button" value="恢复ready">
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切换图片</title>
+</head>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function()
+    {
+        var oTxt=document.getElementsByTagName("input")[0];
+        var oBtn=document.getElementsByTagName("button")[0];
+
+        oBtn.onclick=function()
+        {
+            var txt=oTxt.value;
+            //这里使用了attr，因为attr返回的src是一段字符串，图片的src也是一段字符串
+            //prop也可以设置，但是prop返回的是true和false，不建议在这种情况下使用
+            $("img").attr("src",txt);
+        }
+    })
+</script>
+<body>
+    <input type="text">
+    <button>切换图片</button>
+    <img src="https://www.baidu.com/img/bd_logo1.png">
+</body>
+</html>

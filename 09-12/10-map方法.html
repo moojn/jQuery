@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+</head>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    /*********JS***********/
+    var arr=[5,78,23,2,1];
+    var obj={0:12, 1:9, 2:1, length:3 }; 
+
+    //map(元素，索引)
+    console.log("js中的map");
+    var res2=arr.map(function(value,index){
+        console.log(index,value);
+    });
+
+    //map方法和forEach方法相同，同样不能遍历伪数组
+
+    /*********jQuery***********/
+
+    //$.map(数组，回调函数)
+    //回调函数（元素，索引）
+    console.log("jQuery中的map");
+    var res1=$.map(arr,function(value,index){
+        console.log(index,value);
+        
+    });
+
+
+    console.log("jQuery中的map遍历伪数组");
+    $.map(obj,function(value,index){
+        console.log(index,value);
+    });
+
+    //jQuery中的map和each一样可以遍历伪数组
+
+    /*********each方法***********/
+    var res3=$.each(arr,function(index,value){
+        console.log(index,value);
+        return index+value;
+    });
+
+
+    var res4=arr.forEach(function(value,index){      //当遍历时调用foreach括号内的回调函数
+        console.log(index,value);
+    } );
+
+
+    var res5=$.map(arr,function(value,index){
+        console.log(index,value);
+        return index+value;
+    });
+
+
+    console.log(res1);                  //jQuery中的map默认返回一个空数组
+    console.log(res2);                  //js中的map返回值是一个未定义的数组
+    console.log(res3);                  //jQuery中的each返回值是遍历的数组中的元素
+    console.log(res4);                  //js中的foreach没有返回值
+
+    //注意！！！！map方法可以在回调函数中对遍历的数组进行处理，
+    //然后通过return生成一个新的数组返回给map(each方法不可以在回调函数类对遍历的数组进行处理)
+    console.log(res5);
+
+</script>
+<body>
+    
+</body>
+</html>
