@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>替换节点</title>
+</head>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function(){
+
+        /*
+        被替换的节点.replaceWith(替换的节点)
+        替换的节点.replaceAll(被替换的节点)
+        */
+        $("button").click(function()
+        {
+            var $h3=$("<h3>我是h3</h3>");
+            // $("h1").replaceWith($h3);
+            $h3.replaceAll("h1");
+        })
+    })
+</script>
+<body>
+    <button>替换</button>
+    <h1>我是h1</h1>
+    <h1>我是h1</h1>
+</body>
+</html>

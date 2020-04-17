@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加节点</title>
+</head>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function()
+    {
+        //添加在内部
+        /*
+        添加在结尾 append<==>appendTo   父节点.append(子节点)       子节点.appendTo(父节点)
+        添加在开头 prepend<==>prependTo 父节点.prepend(子节点)       子节点.prependTo(父节点)
+       
+        */
+        $("button").eq(0).click(function()
+        {
+            $li=$("<li>我是在末尾添加的li</li>")
+            //$("ul").append($li);
+            $li.appendTo("ul");
+        })
+
+        $("button").eq(1).click(function()
+        {
+            $li=$("<li>我是在开头添加的的li</li>")
+            //$("ul").prepend($li);
+            $li.prependTo("ul");
+        })
+
+
+        //添加在外部
+        /*
+        添加在结尾 after<==>insertAfter   上一级节点.after(添加的节点)       添加的节点.insertAfter(上一级节点)
+        添加在开头 before<==>insertBefore 下一级节点.before(添加的节点)       添加的节点.insertBefore(下一级节点)
+        */
+        $("button").eq(2).click(function()
+        {
+            $li=$("<li>我是在外部末尾添加的li</li>")
+            //$("ul").after($li);
+            $li.insertAfter("ul");
+        })
+
+        $("button").eq(3).click(function()
+        {
+            $li=$("<li>我是在外部开头添加的的li</li>")
+            //$("ul").before($li);
+            $li.insertBefore("ul");
+        })
+
+       $("body,htnl").on("click","li",function()
+       {
+           alert($(this).html());
+       })
+    })
+</script>
+<body>
+    内部
+    <button>添加在末尾</button>
+    <button>添加在开头</button>
+    外部
+    <button>添加在末尾</button>
+    <button>添加在开头</button>
+    <ul>
+        <li>第1个li</li>
+        <li>第2个li</li>
+        <li>第3个li</li>
+    </ul>
+</body>
+</html>

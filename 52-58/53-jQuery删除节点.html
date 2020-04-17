@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除节点</title>
+</head>
+<script src="../jquery-1.12.4.min.js"></script>
+<script>
+    $(function()
+    {
+        //删除节点
+        $("button").eq(0).click(function()
+        {
+            //！！注意 remove，和detach传递的参数可以进行选择
+            //$("div").remove();            //会删除给节点添加的事件，函数等
+            //$("div").detach();            //不会删除给节点添加的事件，函数等
+            $("p").remove(".item");
+        })
+
+        //删除内容
+        $("button").eq(1).click(function()
+        {
+            //!!注意 empty是一个特殊的语法结构，不能传递参数
+            $("div").empty();           //清空节点，节点本身不会被删除，删除节点中的标签以及内容
+            
+        })
+    })
+</script>
+<body>
+    <button>删除节点</button>
+    <button>删除内容</button>
+    <div>
+        我是div
+        <P>我是第1个段落</P>
+        <P class="item">我是第2个段落</P>
+        <P>我是第3个段落</P>
+    </div>
+</body>
+</html>
